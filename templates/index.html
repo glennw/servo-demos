@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}index{% endblock %}
+{% block body %}
+<h3>Select a demo to run</h3>
+{% for key, demo in demos.items() %}
+    <div>
+        <a href="demos/{{ key }}">{{ demo.title }}</a>
+    </div>
+{% endfor %}
+{% endblock %}

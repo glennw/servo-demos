@@ -1,0 +1,29 @@
+{
+    "loaders": {
+        "title": "CSS loaders",
+        "css": [
+            "loaders.min.css"
+        ]
+    },
+    "filters_text": {
+        "title": "Filters (text)"
+    },
+    "filters_image": {
+        "title": "Filters (image)"
+    },
+    "smoky_text": {
+        "title": "Smoky Text"
+    },
+    "physics": {
+        "js": [
+            "matter.min.js"
+        ],
+        "title": "matter.js physics"
+    },
+    "multiply": {
+        "title": "Multiply (MotionMark)"
+    },
+    "gallery": {
+        "title": "Gallery"
+    }
+}

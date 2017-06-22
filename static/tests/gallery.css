@@ -1,0 +1,16 @@
+#stage {
+    background: linear-gradient(to bottom, rgba(64,0,0,1), rgba(0,0,0,0));
+}
+
+#counter {
+    top: 20px;
+    left: 400px;
+    font-size: 32px;
+    color: rgb(0, 255, 0);
+}
+
+.caption {
+    top: 315px;
+    font-size: 32px;
+    font-family: 'Walter Turncoat';
+}
