@@ -68,9 +68,30 @@ class Test {
     init() {
         this.counter = addDivToRoot();
         this.counter.id = "counter";
+        this.images_loaded = 0;
 
         this.items = [];
         this.lastTime = 0;
+        var self = this;
+
+        // precache the images
+        for (var i=0 ; i < photos.length ; ++i) {
+            var photo = photos[i];
+            var img = document.createElement('img');
+            img.style.width = '1px';
+            img.style.height = '1px';
+            img.style.opacity = 0.01;
+
+            img.addEventListener('load', function() {
+                addToStage(img);
+                self.images_loaded += 1;
+
+                if (self.images_loaded == photos.length) {
+                    clearStage();
+                }
+            }, false);
+            img.src = photo.path;
+        }
     }
 
     update(t) {
@@ -82,10 +103,12 @@ class Test {
             item.update(dt);
         }
 
-        if (this.items.length < 150 && randomInt(0, 10) == 0) {
-            this.items.push(new Item(randomInt(0, 400),
-                                     randomInt(0, 300),
-                                     randomInt(0, photos.length-1)));
+        if (this.images_loaded == photos.length) {
+            if (this.items.length < 150 && randomInt(0, 10) == 0) {
+                this.items.push(new Item(randomInt(0, 400),
+                                         randomInt(0, 300),
+                                         randomInt(0, photos.length-1)));
+            }
         }
 
         this.counter.innerHTML = "Images: " + this.items.length;
